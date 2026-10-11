@@ -1,38 +1,11 @@
-# Reprompt
+# Compass distribution
 
-One keystroke reads what's on your screen — including the part that's scrolled off it — and writes the right reply into the box you're typing in. A sharper prompt, a drafted reply, a full brief. Nothing is ever sent for you. Nothing is stored. It runs on your own OpenAI or Anthropic key.
+Compass helps you understand your connected AI work and prepare a reviewed next instruction. This repository holds public distribution only; source lives in [full-context-reader](https://github.com/kaiteddy/full-context-reader).
 
-Press **Control+R** in any text box. **Control+E** explains what's on screen in plain English.
+**Public installation is on hold.** The installer refuses before downloading or executing a package until a release owner reviews and pins an immutable version, archive SHA-256 and source commit. The public legacy package does not establish the safety or compatibility of the current source. This repository change does not publish or verify a new release.
 
-## Install (Mac) — one line, then two questions
+The canonical and distribution bootstraps must stay identical. An approved package must contain the complete runtime inside the publisher-signed, notarized Mac app. Installation verifies the publisher and sealed runtime before replacement, stages the app, and retains the previous app for recovery. Configuration and local data stay separate.
 
-Open Terminal (Cmd+Space, type *Terminal*) and paste:
+Do not install by selecting an arbitrary latest release or bypassing macOS checks. Public downloads and release instructions will be added after the exact artifact passes its Mac release gates.
 
-```
-curl -fsSL https://raw.githubusercontent.com/kaiteddy/reprompt/main/install.sh | bash
-```
-
-It will:
-
-1. download and set everything up — nothing else to install, no Homebrew, no Xcode;
-2. ask you to **paste your API key** (OpenAI is fastest; Anthropic works too) — saved in your Keychain, never a file;
-3. open System Settings so you can **switch on Hammerspoon** under Accessibility — the one permission macOS needs to let a hotkey read and write your text boxes. Press Return in Terminal when done.
-
-Then put your cursor in any text box and press Control+R.
-
-## What it does
-
-- **Empty box** → it reads the conversation on screen and drafts your reply.
-- **A few words** → it builds your gist into a complete, well-structured prompt.
-- **A full draft** → it tightens it and resolves what "this" and "that" refer to.
-- **On an engineering conversation** (an incident, a release, a coding agent's report) it judges from the evidence whether the work is actually complete, and writes the reply that says so — what's authorised, what isn't, what needs approval. Control+E gives you the plain-English explanation.
-
-## Updating
-
-From the little **R** in the menu bar: *Check for updates*. Or in Terminal: `reprompt --update`.
-
-## Privacy
-
-Reprompt runs entirely on your Mac. What it reads off your screen goes only to the model you configured, with your own key, and is never written to disk. There is no Reprompt server and no account.
-
-This repository holds the installer and release packages only.
+Compass uses your configured AI provider. Selected context can leave the Mac for that provider, and drafts, project state and recovery information can be retained locally. See the source repository's [privacy document](https://github.com/kaiteddy/full-context-reader/blob/master/PRIVACY.md) for the current candidate's precise behavior.
